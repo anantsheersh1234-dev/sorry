@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry Baby 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sorry-button {
+            font-size: 5rem;
+            border: none;
+            background: white;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .sorry-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .sorry-button:active {
+            transform: scale(0.95);
+        }
+
+        .card {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card.active {
+            display: block;
+        }
+
+        .bouquet {
+            font-size: 5rem;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .done-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .done-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .kiss-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .kiss-overlay.active {
+            display: flex;
+        }
+
+        .kiss-content {
+            text-align: center;
+            position: relative;
+        }
+
+        .kiss-image {
+            max-width: 90%;
+            max-height: 70vh;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .kiss-emoji {
+            position: absolute;
+            font-size: 3rem;
+            animation: pop 0.6s ease infinite;
+        }
+
+        @keyframes pop {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="initial-screen">
+            <h1>I'm Sorry Baby 💕</h1>
+            <button class="sorry-button" onclick="openCard()">🥺</button>
+        </div>
+
+        <div class="card" id="sorry-card">
+            <div class="bouquet">💐</div>
+            <h2>I'm Really Sorry Baby 💕</h2>
+            <div class="message">
+                Baby, I'm genuinely sorry. I didn't mean to do that, it was really out of my knowledge ki charging se kaise mai sogya tha cuz I had no lecture but I really didn't want to do that. Mai toh humesha dekhna chahta hu, subah bhi wait krra tha jab aap nhi the, humesha aap. 
+                <br><br>
+                Pls kuch aur mat smjho kro, trust me I'll keep loving you forever baby but don't you dare think mai granted leta hu - kabhi nhi lunga I swear. 💖
+            </div>
+            <button class="done-button" onclick="showKiss()">Done Reading ✓</button>
+        </div>
+    </div>
+
+    <div class="kiss-overlay" id="kiss-overlay">
+        <button class="close-button" onclick="closeKiss()">×</button>
+        <div class="kiss-content">
+            <img src="your-image-here.jpg" alt="Kiss" class="kiss-image" id="kiss-image">
+            <!-- Kiss emojis will be added dynamically -->
+        </div>
+    </div>
+
+    <script>
+        function openCard() {
+            document.getElementById('initial-screen').style.display = 'none';
+            document.getElementById('sorry-card').classList.add('active');
+        }
+
+        function showKiss() {
+            const overlay = document.getElementById('kiss-overlay');
+            overlay.classList.add('active');
+            
+            // Create floating kiss emojis
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createKissEmoji();
+                }, i * 200);
+            }
+        }
+
+        function createKissEmoji() {
+            const emoji = document.createElement('div');
+            emoji.className = 'kiss-emoji';
+            emoji.textContent = '💋';
+            emoji.style.left = Math.random() * 100 + '%';
+            emoji.style.top = Math.random() * 100 + '%';
+            emoji.style.animationDelay = Math.random() * 0.5 + 's';
+            
+            document.querySelector('.kiss-content').appendChild(emoji);
+            
+            setTimeout(() => {
+                emoji.remove();
+            }, 3000);
+        }
+
+        function closeKiss() {
+            document.getElementById('kiss-overlay').classList.remove('active');
+        }
+
+        // Close overlay when clicking outside the image
+        document.getElementById('kiss-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeKiss();
+            }
+        });
+    </script>
+</body>
+</html>
